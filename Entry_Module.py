@@ -29,13 +29,6 @@ cat_dict = {
         ]
 }
 
-summe_totals = [
-    [], #0-clothes
-    [], #1-food
-    [], #2-hygiene
-    [], #3-leisure
-    [] #4-mobile
-    ]
 
 class Entry:
     summe = None
@@ -60,7 +53,7 @@ class Entry:
                     print("value has to be a number!")
                     Entry.summe = input("Sum?: ")
 
-            Entry.reason = input("Reason?")
+            Entry.reason = input("Reason?: ")
             if Entry.reason == "back":
                 print("rewrite the sum")
                 continue
@@ -71,7 +64,7 @@ class Entry:
             if Entry.cat_checker(self) == 0:
                 quest = (input("Oops...want to write it again?"))
                 if quest == "yes":
-                    Entry.reason = input("Reason: ")
+                    Entry.reason = input("Reason?: ")
                     continue
                 else:
                     Entry.new_cat(self)
@@ -79,7 +72,7 @@ class Entry:
             else:
                 break
 
-        Entry.date = input("Date?")
+        Entry.date = input("Date?: ")
         return int(Entry.summe), Entry.reason, Entry.date, Entry.classifier
 
 
@@ -135,6 +128,8 @@ class Cycle(Entry) :
             progress = input()
 
 
+
+
     def printOverview(self):
         b = 0
         space = (" ")
@@ -145,12 +140,10 @@ class Cycle(Entry) :
             else:
                 break
 
-    def ret_sum_and_class(self):
-        return (Cycle.summe_list, Cycle.classifier_list)
+    def ret_entry_lists(self):
+        entry_lists = (Cycle.summe_list, Cycle.reason_list, Cycle.date_list, Cycle.classifier_list)
+        return entry_lists
 
-
-    def ret_summe_list(self):
-        return Cycle.summe_list
 
 
 
