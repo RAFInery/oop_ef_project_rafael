@@ -73,7 +73,7 @@ class Entry:
                 break
 
         Entry.date = input("Date?: ")
-        return int(Entry.summe), Entry.reason, Entry.date, Entry.classifier
+        return float(Entry.summe), Entry.reason, Entry.date, Entry.classifier
 
 
     def cat_checker(self):

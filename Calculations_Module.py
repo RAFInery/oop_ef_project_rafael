@@ -38,8 +38,8 @@ class Calculate:
             sum_list, classification_list = entry_lists[0], entry_lists[3]
             Calculate.new_sum_calc(self, sum_list, classification_list)
             for i in Calculate.new_sum.keys():
-                print ("new_sum: ", Calculate.new_sum)
-                print ("old_sum: ", Calculate.old_sum)
+                # print ("new_sum: ", Calculate.new_sum)
+                # print ("old_sum: ", Calculate.old_sum)
                 Calculate.total_sum[i] += Calculate.new_sum[i]
                 Calculate.total_sum[i] += Calculate.old_sum[i]
             Calculate.new_entry = True

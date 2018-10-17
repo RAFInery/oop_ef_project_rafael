@@ -12,9 +12,9 @@ class Pickeling:
         pickle.dump(saving_obj, file=open("pickle_saving_FiPro.pkl", "wb"))
 
 
-    def save_data(self, status, stock, sum, month):
+    def save_data(self, status, stock, sume, month):
         if status == "inProgress":
-            Pickeling.temporary_saving(stock, stock, sum, month)
+            Pickeling.temporary_saving(stock, stock, sume, month)
         elif status == "final":
             Pickeling.monthly_reset(self, stock)
 

@@ -4,6 +4,8 @@ RESET THE PROGRAMME
 """
 
 class Reset:
+	
+	
     def reset(self):
         base_stock = {
             "clothes_keys": 0,
@@ -37,7 +39,7 @@ class Reset:
         return reload_dic
 
 reset = Reset()
-# reset.reset()
+#reset.reset()
 print (reset.reload())
 
 # print (pic.reload()) -->Check if it worked!
