@@ -26,5 +26,22 @@ Mit dem Befehl "done" wird dem Programm vermittelt, dass keine weitere Einträge
 
 Die Summen der gleichen Klassifizierung werden zusammengerechnet und eine positive oder negative Differenz mit dem "Stock" ermittelt.
 
+/17.09.18
+Das Programm ist nun in seinen Grundfunktionen fertiggestellt. 
+Der Ablauf ist wie folgt:
+
+Das Pickel-File wird geladen. Falls kein Monat angegeben ist, fordert das Programm den Benutzer auf seinen Monat der folgenden Einträge zu spezifizieren.
+
+Im Falle eines neuen Monats, wird das Monatliche Budget zum bestehenden Stock hinzuaddiert. 
+
+Der Benutzer entscheidet über seine Absichten: "new entry" oder "final calculations".
+
+Bei "new entry" kann der Benutzer beliebig viele Einträge bestehend aus Summe, Grund und Datum tätigen.
+
+Anschliessend wird dem Benutzer die Frage gestellt, ob das sein letzter Eintrag war oder ob noch weitere folgen.
+Falls noch weitere folgen, werden die Daten in einer Python-Dictionary als Pickel-File gespeichert. Ansonsten schreitet das Programm zur Stuffe der abschliessenden Abrechnungen, zu welcher der Benutzer auch direkt über die Eingabe "final calculations" anfangs des Programms gelangt. Dies beeinhält die Addition der neuen und gespeicherten Summen und die Bilanz-Ausrechnung des Stocks. Diese Ergebnisse werden in einem einfachen Textfile dargestellt. Danach wird das Pickel-File wieder auf einen neuen Monat zurück gesetzt. Daher: stock = calculated stock, sum = None, month = None.
+Zurzeit arbeite ich an einem Unittest, um anschliessend noch kleinere Anpassungen tätigen zu können.
+
+
 
 
