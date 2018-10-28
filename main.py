@@ -12,6 +12,7 @@ class Main:
     summe = None
     end_stock = None
     entry_status = "inProgress"
+    cat_dict = None
     # instances
     stock = Stock()
     cycle = Cycle()
@@ -29,8 +30,9 @@ class Main:
 
 
     def cycle_func(self):
-        Main.cycle.cycle()
+        Main.cycle.cycle(Main.reload_dict["cat"])
         Main.entry_lists = Main.cycle.ret_entry_lists()
+        Main.cat_dict = Main.cycle.ret_cat_dict
 
 
     def calculate_func(self):
@@ -63,15 +65,10 @@ class Main:
                 if inp2 in ["yes", "Yes", "YES", "ja", "Ja"] or inp == "final calculations":
                     Main.writing.write_bilance(Main.total_sum, Main.end_stock)
                     Main.entry_status = "final"
-                Main.pic.save_data(Main.entry_status, Main.end_stock, Main.total_sum, Main.reload_dict["month"])
+                Main.pic.save_data(Main.entry_status, Main.end_stock, 
+                Main.total_sum, Main.reload_dict["month"], Entry.cat_dict)
                 break
-
-
 
 
 start = Main()
 start.main_board()
-
-
-
-

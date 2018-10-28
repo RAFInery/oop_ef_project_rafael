@@ -1,3 +1,4 @@
+from pickle_reset import Reset
 class Stock:
     """
     base_stock = {
@@ -23,10 +24,15 @@ class Stock:
 
     def check_month(self, saving_dict):
         Stock.base_stock = saving_dict["stock"]
-        if saving_dict["month"] is None:
+        while saving_dict["month"] is None:
             inp = input("Month of your entries?: ")
-            saving_dict["month"] = inp
-            Stock.monthly_stock(self)
+            if inp in ["restart", "reboot", "reset"]:
+                reset = Reset()
+                reset.reset()
+                print ("Programm has been reset")
+            else:
+                saving_dict["month"] = inp
+                Stock.monthly_stock(self)
 
 
     def return_stock(self):

@@ -4,7 +4,7 @@ import pickle
 
 
 """Lists"""
-
+"""
 cat_dict = {
     "categories":[
         'clothes', 'daylyfood', 'hygiene',
@@ -28,19 +28,27 @@ cat_dict = {
         'Abbo', 'Zusatzkosten'
         ]
 }
-
+"""
 
 class Entry:
     summe = None
     reason = None
     date = None
     classifier = None
+    cat_dict = None
+    dict_numb_cat = None
 
 
-    def new_entry(self):
+    def load_cat_dict(self, cat):
+        Entry.cat_dict = cat
+        print (Entry.cat_dict)
+
+
+    def new_entry(self, cat):
         """
         :return: Entry. -summe, -reason, -date
         """
+        Entry.load_cat_dict(self, cat)
         while True:
             Entry.summe = (input("Sum?: "))
             while True:
@@ -78,8 +86,8 @@ class Entry:
 
     def cat_checker(self):
         found = 0
-        for i in cat_dict.keys():
-            if Entry.reason in cat_dict[i]:
+        for i in Entry.cat_dict.keys():
+            if Entry.reason in Entry.cat_dict[i]:
                 found = 1
                 Entry.classifier = i
                 break
@@ -94,60 +102,43 @@ class Entry:
               "\n3 = leisure",
               "\n4 = mobile")
         while True:
-            a = int(input())
+            a = input()
             try:
-                dict_numb_cat = {0: "clothes_keys", 1: "dayly_food_keys", 2: "hygiene_keys",
-                                 3: "leisure_keys", 4:"mobile_keys"}
-                cat_dict[dict_numb_cat[a]].append(Entry.reason)
+                Entry.dict_numb_cat = {"0": "clothes_keys", "1": "dayly_food_keys",
+                "2": "hygiene_keys",
+                "3": "leisure_keys", "4":"mobile_keys"}
+                Entry.cat_dict[Entry.dict_numb_cat[a]].append(Entry.reason)
                 break
             except KeyError:
                 print ("Choose between given numbers!")
 
-        Entry.classifier = dict_numb_cat[a]
 
+        Entry.classifier = Entry.dict_numb_cat[a]
 
-
-
-
-
+            
 class Cycle(Entry) :
     summe_list = []
     reason_list = []
     date_list = []
     classifier_list = []
+    
 
-
-    def cycle(self):
+    def cycle(self, cat):
         progress = None
         while not progress == "done":
-            s, r, d, c = Cycle.new_entry(self)
+            s, r, d, c = Cycle.new_entry(self, cat)
             Cycle.summe_list.append(s)
             Cycle.reason_list.append(r)
             Cycle.date_list.append(d)
             Cycle.classifier_list.append(c)
-            progress = input()
+            progress = input("enter <done> to end, otherwhise tape any other key")
 
-
-
-
-    def printOverview(self):
-        b = 0
-        space = (" ")
-        for obs in Cycle.summe_list:
-            print(Cycle.summe_list[b], 10 * space, Cycle.reason_list[b], 10 * space, Cycle.date_list[b])
-            if len(Cycle.summe_list) > 1:
-                b += 1
-            else:
-                break
 
     def ret_entry_lists(self):
         entry_lists = (Cycle.summe_list, Cycle.reason_list, Cycle.date_list, Cycle.classifier_list)
         return entry_lists
-
-
-
-
-
-
-
+     
+     
+    def ret_cat_dict(self):
+        return Entry.cat_dict
 

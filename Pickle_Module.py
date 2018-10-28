@@ -12,14 +12,14 @@ class Pickeling:
         pickle.dump(saving_obj, file=open("pickle_saving_FiPro.pkl", "wb"))
 
 
-    def save_data(self, status, stock, sume, month):
+    def save_data(self, status, stock, sume, month, cat):
         if status == "inProgress":
-            Pickeling.temporary_saving(stock, stock, sume, month)
+            Pickeling.temporary_saving(stock, stock, sume, month, cat)
         elif status == "final":
-            Pickeling.monthly_reset(self, stock)
+            Pickeling.monthly_reset(self, stock, cat)
 
 
-    def monthly_reset(self, base_stock):
+    def monthly_reset(self, base_stock, cat_dict):
 
         sum_totals = {
             "clothes_keys": 0,
@@ -27,20 +27,23 @@ class Pickeling:
             "hygiene_keys": 0,
             "leisure_keys": 0,
             "mobile_keys": 0}
+            
 
         saving_dict = {
             "stock": base_stock,
             "sum": sum_totals,
-            "month": None}
+            "month": None,
+            "cat": cat_dict}
 
         Pickeling.save(self, saving_dict)
 
 
-    def temporary_saving(self, base_stock, sum_totals, month):
+    def temporary_saving(self, base_stock, sum_totals, month, cat_dict):
         saving_dict = {
             "stock": base_stock,
             "sum": sum_totals,
-            "month": month}
+            "month": month,
+            "cat": cat_dict}
 
         Pickeling.save(self, saving_dict)
 
