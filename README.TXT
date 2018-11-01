@@ -1,5 +1,5 @@
 //Grundidee des Programms//
-Das Programm soll es ermöglichen, alltägliche Ausgaben auf einfache Weise auf einer Liste zusammenzufassen und dem Nutzer praktische Statistiken im Zusammenhang zu festgelegten Budgets pro Bereich (Kleidung, Essen/Verpflegung, Ausgang/Freizeit, Hygiene, Handyabbo) zu geben.
+Das Programm soll es ermöglichen, alltägliche Ausgaben auf einfache Weise in einer Liste zusammenzufassen und dem Nutzer praktische Statistiken im Zusammenhang zu festgelegten Budgets pro Bereich (Kleidung, Essen/Verpflegung, Ausgang/Freizeit, Hygiene, Handyabbo) zu geben.
 
 /31.08.18
 Da ich das Programm schon vor Projektbeginn zu programmieren begonnen habe, läuft das Programm schon. Als erster Schritt wird nun das funktionsfähige Programm in die Struktur des objekt orientierten Programmierens gebracht. Bis jezt wurden 3/4 des Programms in drei Klassen übersetzt: 
@@ -27,10 +27,10 @@ Mit dem Befehl "done" wird dem Programm vermittelt, dass keine weitere Einträge
 Die Summen der gleichen Klassifizierung werden zusammengerechnet und eine positive oder negative Differenz mit dem "Stock" ermittelt.
 
 /17.09.18
-Das Programm ist nun in seinen Grundfunktionen fertiggestellt. Neu hinzu kommt die Funktion, den Eintrag über unbestimmte Zeit hinweg fertigzustellen. Dies wird durch eine Dictionnary ermögicht, das die Summe, Stock und den Monat umfasst und in einer Pickle-Datei abgespeichert ist. 
+Das Programm ist nun in seinen Grundfunktionen fertiggestellt. Die einzelnen Py-Files sins neuerdings als "Module" benannt (z.B. "Entry_Module.py"). Neu hinzu kommt die Funktion, den Eintrag über unbestimmte Zeit hinweg fertigzustellen. Dies wird durch eine "dictionnary" ermögicht, die die Summe, Stock und den Monat umfasst und in einer Pickle-Datei abgespeichert ist. 
 Der Ablauf ist wie folgt:
 
-Das Pickel-File wird geladen. Falls kein Monat angegeben ist, fordert das Programm den Benutzer auf seinen Monat der folgenden Einträge zu spezifizieren.
+Das Pickel-File wird geladen. Falls kein Monat angegeben ist, fordert das Programm den Benutzer auf, seinen Monat der folgenden Einträge zu spezifizieren.
 
 Im Falle eines neuen Monats, wird das Monatliche Budget zum bestehenden Stock hinzuaddiert. 
 
@@ -39,8 +39,8 @@ Der Benutzer entscheidet über seine Absichten: "new entry" oder "final calculat
 Bei "new entry" kann der Benutzer beliebig viele Einträge bestehend aus Summe, Grund und Datum tätigen.
 
 Anschliessend wird dem Benutzer die Frage gestellt, ob das sein letzter Eintrag war oder ob noch weitere folgen.
-Falls noch weitere folgen, werden die Daten in einer Python-Dictionary als Pickel-File gespeichert. Ansonsten schreitet das Programm zur Stuffe der abschliessenden Abrechnungen, zu welcher der Benutzer auch direkt über die Eingabe "final calculations" anfangs des Programms gelangt. Dies beeinhält die Addition der neuen und gespeicherten Summen und die Bilanz-Ausrechnung des Stocks. Diese Ergebnisse werden in einem einfachen Textfile dargestellt. Danach wird das Pickel-File wieder auf einen neuen Monat zurück gesetzt. Daher: stock = calculated stock, sum = None, month = None.
-Zurzeit arbeite ich an einem Unittest, um anschliessend noch kleinere Anpassungen tätigen zu können.
+Falls noch weitere folgen, werden die Daten in einer python-dictionary als pickel-fle gespeichert. Ansonsten schreitet das Programm zur Stuffe der abschliessenden Abrechnungen, zu welcher der Benutzer auch direkt über die Eingabe "final calculations" anfangs des Programms gelangt. Dies beeinhält die Addition der neuen und gespeicherten Summen und die Bilanz-Ausrechnung des Stocks. Diese Ergebnisse werden in einem einfachen Textfile dargestellt. Danach wird das pckel-fle wieder auf einen neuen Monat zurück gesetzt. Daher: stock = calculated stock, sum = None, month = None.
+
 
 /31.10.18
 Dem Programm wurde eine dynamische Speicherfunktion neuer "keys" hinzugefügt. Das Programm meldet einen unbekannten Grund sofort. Im Falle, das es sich dabe nicht um einen Schreibfehler handelt, ist es dem User möglich einen neuen key permanent hinzuzufügen. Neue keys/Gründe sind dem Programm demnach auch in anschliessenden Monatseinträgen bekannt. Bei einem allgälligen "reset" der Pickle-Datei gehen die hinzugefügten keys jedoch verloren, da die Gründe des "Speicher-Dictionary" angehängt ist. 
@@ -51,7 +51,10 @@ Bedienungshinweis (31.10.2018):
 Mit dem FiPro können Ausgaben einfach verschriftlicht und eine Bilanz erstellt werden. Grundsätzlich stellt das Programm eine interne Bedienungshilfe bereit. Es folgen wenige wichtige Punkte, die jedoch weiter beachtet werden müssen, damit der Prozess nicht gestört wird.
 
 Projektfile: 
-Alle Datein die in Verbindung mit dem Programm stehen, müssen sich im gleichen Ordner befinden. Dies schliesst auch das "Pickle-File" und die erstellen Blätter mit den Ausgabenauflistungen nicht aus.
+Alle Datein die in Verbindung mit dem Programm stehen, müssen sich im gleichen Ordner befinden. Dies schliesst auch das pickle-file und die erstellen Blätter mit den Ausgabenauflistungen nicht aus.
+
+Download:
+Die Datei "FiPro_Rafael_Sollberger_2.0" kann als solche heruntergeladen und das Programm in "main" gestartet werden. Im Falle eines Fehlers, empfehle ich die einen "reset" anhand der "pickle_reset-Datei" durchzuführen.
 
 
 
