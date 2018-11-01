@@ -43,7 +43,7 @@ Falls noch weitere folgen, werden die Daten in einer python-dictionary als picke
 
 
 /31.10.18
-Dem Programm wurde eine dynamische Speicherfunktion neuer "keys" hinzugefügt. Das Programm meldet einen unbekannten Grund sofort. Im Falle, das es sich dabe nicht um einen Schreibfehler handelt, ist es dem User möglich einen neuen key permanent hinzuzufügen. Neue keys/Gründe sind dem Programm demnach auch in anschliessenden Monatseinträgen bekannt. Bei einem allgälligen "reset" der Pickle-Datei gehen die hinzugefügten keys jedoch verloren, da die Gründe des "Speicher-Dictionary" angehängt ist. 
+Dem Programm wurde eine dynamische Speicherfunktion neuer "keys" hinzugefügt. Das Programm meldet einen unbekannten Grund sofort. Im Falle, das es sich dabe nicht um einen Schreibfehler handelt, ist es dem User möglich einen neuen key permanent hinzuzufügen. Neue keys/Gründe sind dem Programm demnach auch in anschliessenden Monatseinträgen bekannt. Bei einem allgälligen "reset" der pickle-datei gehen die hinzugefügten keys jedoch verloren, da die Gründe dem "speicher-dictionary" angehängt sind. 
 
 
 Bedienungshinweis (31.10.2018):
@@ -54,7 +54,7 @@ Projektfile:
 Alle Datein die in Verbindung mit dem Programm stehen, müssen sich im gleichen Ordner befinden. Dies schliesst auch das pickle-file und die erstellen Blätter mit den Ausgabenauflistungen nicht aus.
 
 Download:
-Die Datei "FiPro_Rafael_Sollberger_2.0" kann als solche heruntergeladen und das Programm in "main" gestartet werden. Im Falle eines Fehlers, empfehle ich die einen "reset" anhand der "pickle_reset-Datei" durchzuführen.
+Die Datei "FiPro_Rafael_Sollberger_2.0" kann als solche heruntergeladen und das Programm in "main" gestartet werden. Im Falle eines Fehlers, empfehle ich die einen "reset" anhand der "pickle_reset-Datei" (Branch: Version-2.0) durchzuführen.
 
 
 
